@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Valentine’s Day 💖</h1>
+        <p id="message">Click the button…</p>
+        <button onclick="showLove()">Click Me ❤️</button>
+    </div>
+
+    
+</body>
+</html>
