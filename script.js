@@ -1,5 +1,9 @@
+window.addEventListener("load", ()=>{
 
 const messageEl = document.getElementById("message");
+const memoryLayer = document.querySelector(".memory-layer");
+const petalLayer = document.querySelector(".petal-layer");
+const bg = document.querySelector(".bg-img");
 
 const messages = [
     "I love you Nayely 💖",
@@ -42,8 +46,6 @@ function cycle(){
 }
 cycle();
 
-const bg = document.querySelector(".bg-img");
-
 const pics = [
     "Images/pic1.jpg",
     "Images/pic2.jpg",
@@ -56,11 +58,7 @@ function changeBackground(){
 setInterval(changeBackground,5000);
 changeBackground();
 
-
-const memoryLayer = document.querySelector(".memory-layer");
-
 const memoryPics = [
-
 "Images/IMG-20240319-WA0000.jpg",
 "Images/IMG-20240509-WA0000.jpg",
 "Images/737783286.jpg",
@@ -71,14 +69,12 @@ const memoryPics = [
 "Images/IMG-20240908-WA0003.jpg",
 "Images/Screenshot_20260213_173321_WhatsApp.jpg",
 "Images/Screenshot_20260213_173318_WhatsApp.jpg"
-
 ];
 
 function rand(min,max){
     return Math.random()*(max-min)+min;
 }
 
-/* SHUFFLE */
 function shuffle(array){
     for(let i=array.length-1;i>0;i--){
         const j=Math.floor(Math.random()*(i+1));
@@ -90,52 +86,52 @@ shuffle(memoryPics);
 const placedImages=[];
 
 function isFarEnough(x,y){
-
     for(let img of placedImages){
-
         let dx = x - img.x;
         let dy = y - img.y;
         let distance = Math.sqrt(dx*dx + dy*dy);
-
-        if(distance < 250){
-            return false;
-        }
+        if(distance < 250) return false;
     }
     return true;
 }
 
-const pageHeight = document.body.scrollHeight;
+/* ✅ WAIT UNTIL PAGE FULLY RENDERS BEFORE PLACING IMAGES */
+setTimeout(()=>{
 
-memoryPics.forEach(pic=>{
+    const pageHeight = document.body.scrollHeight;
 
-    let img=document.createElement("img");
+    memoryPics.forEach(pic=>{
 
-    img.src=pic;
-    img.classList.add("memory");
+        let img=document.createElement("img");
 
-    let width = rand(120,200);
-    let x,y;
-    let placed=false;
+        img.src=pic;
+        img.classList.add("memory");
 
-    while(!placed){
+        let width = rand(120,200);
+        let x,y;
+        let placed=false;
 
-        x = rand(5,85);
-        y = rand(0,pageHeight*0.9);
+        while(!placed){
 
-        if(isFarEnough(x*10,y)){
-            placed=true;
+            x = rand(5,85);
+            y = rand(0,pageHeight*0.9);
+
+            if(isFarEnough(x*10,y)){
+                placed=true;
+            }
         }
-    }
 
-    img.style.left = x+"vw";
-    img.style.top = y+"px";
-    img.style.width = width+"px";
-    img.style.transform = `rotate(${rand(-20,20)}deg)`;
+        img.style.left = x+"vw";
+        img.style.top = y+"px";
+        img.style.width = width+"px";
+        img.style.transform = `rotate(${rand(-20,20)}deg)`;
 
-    placedImages.push({x:x*10,y:y});
-    memoryLayer.appendChild(img);
+        placedImages.push({x:x*10,y:y});
+        memoryLayer.appendChild(img);
 
-});
+    });
+
+},500); // <-- THIS is what fixes GitHub
 
 window.addEventListener("scroll",()=>{
     document.querySelectorAll(".memory").forEach(mem=>{
@@ -145,9 +141,6 @@ window.addEventListener("scroll",()=>{
         }
     });
 });
-
-
-const petalLayer = document.querySelector(".petal-layer");
 
 for(let i=0;i<15;i++){
 
@@ -191,8 +184,6 @@ noBtn.addEventListener("mouseenter", teleportNoButton);
 noBtn.addEventListener("touchstart", teleportNoButton);
 noBtn.addEventListener("mousedown", teleportNoButton);
 
-
-
 yesBtn.addEventListener("click",()=>{
     alert("Yay! I love you Nayely! 💖");
     for(let i=0;i<50;i++){
@@ -205,4 +196,6 @@ yesBtn.addEventListener("click",()=>{
         document.body.appendChild(heart);
         setTimeout(()=>heart.remove(),2000);
     }
+});
+
 });

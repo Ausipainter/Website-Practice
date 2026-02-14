@@ -173,6 +173,10 @@ body{
     animation: fall 2s linear forwards;
     z-index:999;
 }
+.memory img {
+    width:100%;
+    height:auto;
+}
 
 @keyframes fall{
     from{ transform:translateY(0) rotate(0deg); opacity:1; }
