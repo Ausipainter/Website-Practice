@@ -131,7 +131,7 @@ setTimeout(()=>{
 
     });
 
-},500); // <-- THIS is what fixes GitHub
+},500); 
 
 window.addEventListener("scroll",()=>{
     document.querySelectorAll(".memory").forEach(mem=>{
