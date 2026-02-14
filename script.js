@@ -45,9 +45,9 @@ cycle();
 const bg = document.querySelector(".bg-img");
 
 const pics = [
-    "images/pic1.jpg",
-    "images/pic2.jpg",
-    "images/pic3.jpg"
+    "Images/pic1.jpg",
+    "Images/pic2.jpg",
+    "Images/pic3.jpg"
 ];
 
 function changeBackground(){
@@ -61,16 +61,16 @@ const memoryLayer = document.querySelector(".memory-layer");
 
 const memoryPics = [
 
-"images/IMG-20240319-WA0000.jpg",
-"images/IMG-20240509-WA0000.jpg",
-"images/737783286.jpg",
-"images/IMG-20240321-WA0023.jpg",
-"images/IMG-20240214-WA0003.jpg",
-"images/IMG-20250206-WA0009.jpg",
-"images/3dgifmaker63038.gif",
-"images/IMG-20240908-WA0003.jpg",
-"images/Screenshot_20260213_173321_WhatsApp.jpg",
-"images/Screenshot_20260213_173318_WhatsApp.jpg"
+"Images/IMG-20240319-WA0000.jpg",
+"Images/IMG-20240509-WA0000.jpg",
+"Images/737783286.jpg",
+"Images/IMG-20240321-WA0023.jpg",
+"Images/IMG-20240214-WA0003.jpg",
+"Images/IMG-20250206-WA0009.jpg",
+"Images/3dgifmaker63038.gif",
+"Images/IMG-20240908-WA0003.jpg",
+"Images/Screenshot_20260213_173321_WhatsApp.jpg",
+"Images/Screenshot_20260213_173318_WhatsApp.jpg"
 
 ];
 
